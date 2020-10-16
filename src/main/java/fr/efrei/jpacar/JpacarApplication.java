@@ -1,5 +1,7 @@
 package fr.efrei.jpacar;
 
+import fr.efrei.jpacar.model.Vehicule;
+import fr.efrei.jpacar.repository.VehiculeRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

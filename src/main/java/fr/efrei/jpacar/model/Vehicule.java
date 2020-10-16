@@ -1,4 +1,4 @@
-package fr.efrei.jpacar;
+package fr.efrei.jpacar.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,9 +8,8 @@ public class Vehicule implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
 
-    @Id
+    private Long id;
     private String plateNumber;
 
     public Vehicule() {
@@ -22,11 +21,11 @@ public class Vehicule implements Serializable {
         this.plateNumber=plateNumber;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

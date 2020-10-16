@@ -1,5 +1,8 @@
-package fr.efrei.jpacar;
+package fr.efrei.jpacar.web;
 
+import fr.efrei.jpacar.model.Vehicule;
+import fr.efrei.jpacar.repository.VehiculeRepository;
+import fr.efrei.jpacar.service.VehiculeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,27 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class WebService {
+public class VehiculeWebService {
 
-    VehiculeRepository vehiculeRepository;
+    VehiculeService vehiculeService;
 
     @Autowired
-    public WebService(VehiculeRepository vehiculeRepository) {
+    public VehiculeWebService(VehiculeService vehiculeService) {
         super();
-        this.vehiculeRepository = vehiculeRepository;
+        this.vehiculeService = vehiculeService;
     }
 
     @GetMapping("/vehicules")
     public Iterable<Vehicule> getVehicules() {
-        return vehiculeRepository.findAll();
+        return vehiculeService.findAll();
     }
 
-    @PostMapping("/vehicules")
+
+    @GetMapping("/add")
+    public void addVehiculeTemp() throws Exception {
+        Vehicule vehicule = new Vehicule("test");
+        vehiculeService.save(vehicule);
+        if(vehicule.getPlateNumber().equals("otter")) {
+            throw new Exception();
+        }
+
+    }
+/*    @PostMapping("/vehicules")
     @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public void addVehicule(@RequestBody Vehicule vehicule) throws Exception {
         vehiculeRepository.save(vehicule);
         if(vehicule.getPlateNumber().equals("OTTER")) {
             throw new Exception();
         }
-    }
+    }*/
 }
