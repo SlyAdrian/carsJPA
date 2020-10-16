@@ -13,7 +13,7 @@ public class JpacarApplication {
 		SpringApplication.run(JpacarApplication.class, args);
 	}
 
-	// This is a demo
+	// This is a starting demo
 	public CommandLineRunner demo(VehiculeRepository repository) {
 		return (args) ->{
 			Vehicule car_A = new Vehicule("85-GHB-74");
