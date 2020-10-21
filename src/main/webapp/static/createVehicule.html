@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Vehicule creation</title>
+</head>
+<body>
+
+<a href="index.html">Menu</a>
+
+<h1>Add a vehicule</h1>
+
+<form>
+    Plate number: <input id="plateNumberId" type="text" name="plateNumber" value="11AA22"><br>
+
+    <input type="button" value="Submit" onclick="sendVehicule()">
+</form>
+
+<script>
+function sendVehicule() {
+    var text = '{"';
+    text += 'plateNumber":"' + document.getElementById("plateNumberId").value '"}'
+
+    var veh = JSON.parse(text);
+
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('POST', "http://localhost:8080/vehicules", true);
+    httpRequest.setRequestHeader("Content-type", "application/json");
+    httpRequest.send(JSON.stringify(veh));
+
+}
+</script>
+
+
+
+</body>
+</html>

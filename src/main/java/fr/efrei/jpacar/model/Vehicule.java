@@ -21,6 +21,12 @@ public class Vehicule implements Serializable {
         this.plateNumber=plateNumber;
     }
 
+    public Vehicule(String plateNumber, Long noWorry) {
+        super();
+        this.plateNumber=plateNumber;
+        this.id = noWorry;
+    }
+
     public Long getId() {
         return id;
     }

@@ -1,0 +1,22 @@
+fr/efrei/jpacar/repository/PersonRepository.java
+ fr.efrei.jpacar.repository.PersonRepository
+fr/efrei/jpacar/model/Person.java
+ fr.efrei.jpacar.model.Person
+fr/efrei/jpacar/model/Rent.java
+ fr.efrei.jpacar.model.Rent
+fr/efrei/jpacar/repository/VehiculeRepository.java
+ fr.efrei.jpacar.repository.VehiculeRepository
+fr/efrei/jpacar/model/Car.java
+ fr.efrei.jpacar.model.Car
+fr/efrei/jpacar/model/Vehicule.java
+ fr.efrei.jpacar.model.Vehicule
+fr/efrei/jpacar/JpacarApplication.java
+ fr.efrei.jpacar.JpacarApplication
+fr/efrei/jpacar/model/Van.java
+ fr.efrei.jpacar.model.Van
+fr/efrei/jpacar/client/VehiculeClient.java
+ fr.efrei.jpacar.client.VehiculeClient
+fr/efrei/jpacar/service/VehiculeService.java
+ fr.efrei.jpacar.service.VehiculeService
+fr/efrei/jpacar/web/VehiculeWebService.java
+ fr.efrei.jpacar.web.VehiculeWebService
