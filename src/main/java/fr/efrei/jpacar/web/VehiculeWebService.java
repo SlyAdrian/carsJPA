@@ -6,14 +6,16 @@ import fr.efrei.jpacar.service.VehiculeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class VehiculeWebService {
 
+    public List<Vehicule> vehicules = new ArrayList<>();
+    @Autowired
     VehiculeService vehiculeService;
 
     @Autowired
@@ -37,7 +39,31 @@ public class VehiculeWebService {
         }
 
     }
-/*    @PostMapping("/vehicules")
+
+    //public void addVehicule()
+
+/*    @GetMapping("/add")
+    public void addVehiculeTemp2(@RequestBody Vehicule vehicule) throws Exception {
+        Vehicule vehicule2 = new Vehicule(vehicule.getPlateNumber());
+        vehiculeService.save(vehicule2);
+        if(vehicule.getPlateNumber().equals("otter")) {
+            throw new Exception();
+        }
+
+    }*/
+
+    @GetMapping("/postVehicule")
+    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+    public void addVehicule(@RequestBody Vehicule vehicule) throws Exception {
+        vehiculeService.save(vehicule);
+        if(vehicule.getPlateNumber().equals("Otter")) {
+            throw new Exception();
+        }
+    }
+
+
+
+/*   @PostMapping("/vehicules")
     @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public void addVehicule(@RequestBody Vehicule vehicule) throws Exception {
         vehiculeRepository.save(vehicule);
